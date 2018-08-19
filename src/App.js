@@ -1,18 +1,60 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import SideBar from "./Components/SideBar";
+import TopMenu from "./Components/TopMenu";
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      styleNav: {
+        zIndex: 3,
+        width: "260px",
+        display: "none"
+      }
+    };
+    this.handleClickOpen = this.handleClickOpen.bind(this);
+  }
+
+  handleClickOpen() {
+    const display = this.state.styleNav.display;
+    if (display === "none") {
+      this.setState({
+        styleNav: {
+          zIndex: 3,
+          width: "260px",
+          display: "block"
+        }
+      });
+    } else {
+      this.setState({
+        styleNav: {
+          zIndex: 3,
+          width: "260px",
+          display: "none"
+        }
+      });
+    }
+  }
+
+  handleClickClose() {
+    this.setState({
+      styleNav: {
+        zIndex: 3,
+        width: "260px",
+        display: "none"
+      }
+    });
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <SideBar
+          styleNav={this.state.styleNav}
+          onClickClose={() => this.handleClickClose()}
+        />
+        <TopMenu onClick={() => this.handleClickOpen()} />
       </div>
     );
   }
