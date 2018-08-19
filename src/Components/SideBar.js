@@ -25,7 +25,12 @@ class SideBar extends React.Component {
 
           <hr />
 
-          <img src={require("./burger.png")} style={imgStyle} />
+          <img
+            src={
+              "https://raw.githubusercontent.com/JordyAraujo/crazy-maker/master/src/img/burger.png"
+            }
+            style={imgStyle}
+          />
 
           <form action="/action_page.php" target="_blank">
             <p>
